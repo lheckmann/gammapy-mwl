@@ -60,7 +60,7 @@ class SherpaSpectralModel(SpectralModel):
 
         return y_.reshape(shape)
 
-	 def __call__(self, energy):
+    def __call__(self, energy):
         kwargs = {par.name: par.quantity for par in self.parameters}
         kwargs = self._convert_evaluate_unit(kwargs, energy)
         args = list(kwargs.values())
