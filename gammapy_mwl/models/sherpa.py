@@ -40,7 +40,7 @@ class SherpaSpectralModel(SpectralModel):
         for name, value in kwargs.items():
             setattr(self.sherpa_model, name, value)
 
-    def evaluate(self, energy, **kwargs):
+    def evaluate(self, energy, **args):
         if not isinstance(energy, u.Quantity):
             raise ValueError("The energy must be a Quantity object.")
         else:
@@ -53,6 +53,7 @@ class SherpaSpectralModel(SpectralModel):
         energy = energy.flatten()
         energy = np.append(energy, energy[-1] * 2)
 
+        kwargs = {name: q for name, q in zip(self.default_parameters.names, args)}
         self._update_sherpa_parameters(**kwargs)
 
         y_ = self.sherpa_model(energy)[:-1]
