@@ -44,7 +44,7 @@ jobs:
       - name: Install sherpa via conda (non-Windows only)
         if: runner.os != 'Windows'
         run: |
-          conda install -c https://cxc.cfa.harvard.edu/conda/ciao -c conda-forge sherpa "numpy=2.3.5 --no-post-link-scripts"
+          conda install -c https://cxc.cfa.harvard.edu/conda/ciao -c conda-forge sherpa "numpy=2.3.5" --no-post-link-scripts
 
       - name: Install base dependencies
         run: |
