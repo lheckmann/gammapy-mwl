@@ -22,7 +22,8 @@ test = [
     "pytest",
     "pytest-doctestplus",
     "pytest-cov",
-    "pytest-xdist"
+    "pytest-xdist",
+    "sherpa; platform_system != 'Windows'"    
 ]
 docs = [
     "sphinx",
