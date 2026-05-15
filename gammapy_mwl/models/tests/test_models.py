@@ -9,9 +9,10 @@ from gammapy_mwl.models.sherpa import SherpaSpectralModel
 
 def test_SherpaSpectralModel():
     sherpa = pytest.importorskip("sherpa")
-
+    from sherpa.models import basic
+    
     energy_grid = np.linspace(0.5, 10.0, 10) * u.keV
-    plaw = sherpa.models.basic.PowLaw1D()
+    plaw = basic.PowLaw1D()
     plaw.ampl = 1e-3
     plaw.gamma = 2
 
